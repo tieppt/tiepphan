@@ -20,7 +20,7 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: npm run build -- --prod
-    - run: npm run scully -- --scanRoutes 
+    - run: npm run scully
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
