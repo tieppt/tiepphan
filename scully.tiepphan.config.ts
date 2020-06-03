@@ -1,4 +1,8 @@
-import { ScullyConfig, RouteTypes } from '@scullyio/scully';
+import { ScullyConfig, RouteTypes, setPluginConfig } from '@scullyio/scully';
+import { HljsHtml } from './plugins/hljs';
+
+setPluginConfig('md', { enableSyntaxHighlighting: true });
+
 export const config: ScullyConfig = {
   projectRoot: './src',
   projectName: 'tiepphan',
@@ -11,7 +15,8 @@ export const config: ScullyConfig = {
       type: RouteTypes.contentFolder,
       slug: {
         folder: './blog'
-      }
+      },
+      postRenderers: [HljsHtml]
     },
   }
 };
