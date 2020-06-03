@@ -26,7 +26,9 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.scullyRoutesService.getCurrent().subscribe({
       next: (route) => {
-        console.log(route);
+        if (!route) {
+          return this.router.navigateByUrl('/404');
+        }
         this.seoService.setData({
           title: route.title,
           description: route.description,
