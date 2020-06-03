@@ -41,4 +41,17 @@ export class BlogComponent implements OnInit {
     });
   }
 
+  handleContentClick(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    if (target.tagName.toUpperCase() === 'A') {
+      const link = target as HTMLAnchorElement;
+      if (link.hash && link.pathname === location.pathname && link.hash !== location.hash) {
+        const element = document.querySelector(link.hash);
+        if (element) {
+          element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+        }
+      }
+    }
+  }
+
 }
