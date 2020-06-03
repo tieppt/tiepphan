@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { SeoService } from '../core/services/seo.service';
+import { SeoService } from '@tp-blog/app/core/services/seo.service';
+import { environment } from '@tp-blog/env/environment';
 
 declare var ng: any;
 
@@ -30,8 +31,8 @@ export class BlogComponent implements OnInit {
           title: route.title,
           description: route.description,
           author: route.author,
-          image: route.image,
-          url: route.route,
+          image: environment.siteUrl + route.image,
+          url: environment.siteUrl + route.route,
           keywords: route.tags,
           type: 'article',
           published: route.date
