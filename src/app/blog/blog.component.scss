@@ -1,0 +1,10 @@
+::ng-deep {
+  .tp__toc {
+    a {
+      @media screen and (max-width: 991px) {
+        display: block;
+        min-height: 3rem;
+      }
+    }
+  }
+}
