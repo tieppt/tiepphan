@@ -1,6 +1,13 @@
 import { ScullyConfig, RouteTypes, setPluginConfig } from '@scullyio/scully';
 import { HljsHtml } from './plugins/hljs';
-
+import { TocConfig, getTocPlugin} from 'scully-plugin-toc';
+const tocOptions: TocConfig = {
+  blogAreaSelector: '.blog-content',
+  insertSelector: '.tp__toc',
+  level: ['h2', 'h3'],
+};
+const TocPlugin = getTocPlugin();
+setPluginConfig(TocPlugin, tocOptions);
 setPluginConfig('md', { enableSyntaxHighlighting: true });
 
 export const config: ScullyConfig = {
@@ -16,7 +23,7 @@ export const config: ScullyConfig = {
       slug: {
         folder: './blog'
       },
-      postRenderers: [HljsHtml]
+      postRenderers: [HljsHtml, TocPlugin]
     },
   }
 };
