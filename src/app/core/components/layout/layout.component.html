@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="container-fluid site-branding">
+    <div class="header-left">
+      <h1 class="site-title">
+        <a class="site-logo" href="/">
+          <img src="/assets/logo.png" alt="Logo" class="img-logo">
+          <small class="site-sub-title">Lập trình thật kỳ diệu</small>
+        </a>
+      </h1>
+    </div>
+    <div class="header-right">
+      <ul class="main-nav nav">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="link-active" class="nav-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/work" routerLinkActive="link-active" class="nav-link">Work</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" routerLinkActive="link-active" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" routerLinkActive="link-active" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+<main role="main">
+  <ng-content></ng-content>
+</main>
+
+<footer class="footer">
+  Copyright © 2017-2020 tiepphan.com All rights reserved.
+</footer>
