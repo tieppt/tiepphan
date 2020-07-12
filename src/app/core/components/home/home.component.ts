@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SeoService } from '../../services/seo.service';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { environment } from '@tp-blog/env/environment';
+import { map } from 'rxjs/operators';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'tp-home',
@@ -8,8 +10,13 @@ import { environment } from '@tp-blog/env/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private seoService: SeoService) { }
+  posts$ = this.scullyRoutesService.available$.pipe(
+    map(routes => routes.filter(route => route.layout === 'post'))
+  );
+  constructor(
+    private seoService: SeoService,
+    private scullyRoutesService: ScullyRoutesService,
+  ) { }
 
   ngOnInit(): void {
     this.seoService.setData({

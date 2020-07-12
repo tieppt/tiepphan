@@ -32,6 +32,7 @@ export const config: ScullyConfig = {
   routes: {
     '/': {
       type: RouteTypes.default,
+      postRenderers: []
     },
     '/404': {
       type: RouteTypes.default,

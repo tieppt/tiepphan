@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ScullyLibModule } from '@scullyio/ng-lib';
+import { HomeComponent } from './components/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   declarations: [HomeComponent, NotFoundComponent, LayoutComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ScullyLibModule,
   ],
   exports: [LayoutComponent],
 })
