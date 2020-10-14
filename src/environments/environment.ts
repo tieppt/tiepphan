@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  siteUrl: 'https://tiepphan-blog.web.app',
+  siteUrl: 'https://blog.tiepphan.com',
 };
 
 /*
