@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~dracula-prism/css/dracula-prism.css';
+// @import './styles/vendor/bootstrap';
+@import './styles/variables';
+@import './styles/tools/functions';
+
+@import './styles/layout';
+
+html,
+body {
+  font-family: $primary-font;
+}
