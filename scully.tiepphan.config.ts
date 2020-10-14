@@ -1,5 +1,4 @@
 import { ScullyConfig, RouteTypes, setPluginConfig } from '@scullyio/scully';
-import { HljsHtml } from './plugins/hljs';
 import { TocConfig, getTocPlugin } from 'scully-plugin-toc';
 import { getHttp404Plugin } from '@gammastream/scully-plugin-http404';
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
@@ -42,7 +41,7 @@ export const config: ScullyConfig = {
       slug: {
         folder: './blog'
       },
-      postRenderers: [HljsHtml, TocPlugin]
+      postRenderers: [TocPlugin]
     },
   }
 };

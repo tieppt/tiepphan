@@ -1,4 +1,4 @@
-import { registerPlugin, getPluginConfig } from '@scullyio/scully';
+import { registerPlugin, getPluginConfig, HandledRoute } from '@scullyio/scully';
 
 export const HljsHtml = 'hljsHtml';
 export interface HljsHtmlOptions {
@@ -9,7 +9,7 @@ const defaultOptions: HljsHtmlOptions = {
   classList: 'hljs'
 };
 
-export const hljsHtmlPlugin = (html: string) => {
+export const hljsHtmlPlugin = async (html: string, route: HandledRoute): Promise<string> => {
   const customHljsOptions = getPluginConfig<HljsHtmlOptions>(HljsHtml, 'render');
   const hljsOptions = {...defaultOptions, ...customHljsOptions};
   return html.replace(/\<code\s+class="language/g, '<code class="' + hljsOptions.classList + ' language');
@@ -17,4 +17,4 @@ export const hljsHtmlPlugin = (html: string) => {
 
 // no validation implemented
 const hljsHtmlPluginValidator = async () => [];
-registerPlugin('render', HljsHtml, hljsHtmlPlugin);
+registerPlugin('render', HljsHtml, hljsHtmlPlugin, hljsHtmlPluginValidator);
