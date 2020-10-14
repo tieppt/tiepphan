@@ -25,14 +25,18 @@ jobs:
     - uses: actions/cache@v2
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        path: |
+          ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          **\node_modules
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - run: yarn install
+    - name: Install dependencies
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: yarn install
     - run: yarn run build --prod
     - run: yarn run scully --scanRoutes
-    - uses: w9jds/firebase-action@master
+    - uses: w9jds/firebase-action@v1.5.0
       with:
         args: deploy --only hosting
       env:
