@@ -35,7 +35,7 @@ jobs:
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install
     - run: yarn run build --prod
-    - run: yarn run scully --scanRoutes
+    - run: yarn run scully --scanRoutes --noPrompt
     - uses: w9jds/firebase-action@v1.5.0
       with:
         args: deploy --only hosting

@@ -26,7 +26,9 @@
               "apps/blog/src/assets",
               "apps/blog/src/robots.txt"
             ],
-            "styles": ["apps/blog/src/styles.scss"],
+            "styles": [
+              "apps/blog/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -40,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -58,7 +59,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -80,7 +84,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/blog/src/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/blog/src/**/*.ts"
+            ]
           }
         },
         "test": {
@@ -88,7 +94,10 @@
           "options": {
             "jestConfig": "apps/blog/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/apps/blog"
+          ]
         }
       }
     },
@@ -113,7 +122,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/blog-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/blog-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
